@@ -6,9 +6,10 @@ namespace Test2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(sumloop(1000));
+            Console.WriteLine(Odd(1000));
+            Console.WriteLine(Even(1000));
         }
-        public static int sumloop(int x)
+        public static int Odd(int x)
         {
             if (x==1)
             {
@@ -17,11 +18,26 @@ namespace Test2
             }
             else if (x % 2 ==1)
             {
-                return x + sumloop(x - 2);
+                return x + Odd(x - 2);
             }
             else
             {
-                return sumloop(x - 1);
+                return Odd(x - 1);
+            }
+        }
+        public static int Even(int x)
+        {
+            if (x==0)
+            {
+                return 0;
+            }
+            else if (x%2==0)
+            {
+                return x + Even(x - 2);
+            }
+            else
+            {
+                return Even(x - 1);
             }
         }
     }
